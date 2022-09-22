@@ -1,0 +1,38 @@
+a {
+    background-color: blue;
+    color: white;
+}
+
+a:hover{
+    background-color: red;
+    font-size: 20px;
+    transition-duration: 1s;
+    color: white;
+}
+
+header {
+    text-align: center;
+    background-color: black;
+    color: white
+}
+
+article header {
+    text-align: center;
+    background-color: green;
+    color: black
+}
+
+figcaption {
+    color: red
+}
+
+/*id*/
+#aviso{
+    background-color: #66b5b7;
+}
+
+
+/*class*/
+.producto {
+    background-color: #99d18b;
+}
