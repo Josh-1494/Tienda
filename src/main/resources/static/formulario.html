@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <link href="css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="index.html" class="nav-link logo">TechShop</a> 
+                <ul class="nav-menu">
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="iframe.html">&LeftTriangleBar;</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="ejemplo2.html">&RightTriangleBar;</a></li>
+                   <li class="nav-menu-item"><a class="nav-link nav-menu-link">Ejemplos</a>
+                        <ul>
+                            <li ><a class="nav-link nav-menu-link2" href="ejemplo2.html">Ejemplo 2</a></li>
+                            <li ><a class="nav-link nav-menu-link2" href="ejemplo3.html">Ejemplo 3</a></li>
+                            <li ><a class="nav-link nav-menu-link2" href="ejemplo4.html">Ejemplo 4</a></li>
+                            <li ><a class="nav-link nav-menu-link2" href="ejemplo5.html">Ejemplo 5</a></li>
+                            <li ><a class="nav-link nav-menu-link2" href="ejemplo6.html">Ejemplo 6</a></li> 
+                            <li ><a class="nav-link nav-menu-link2" href="ejemplo7.html">Ejemplo 7</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="audios.html">Audios</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="videos.html">Videos</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="iframe.html">iFrame</a></li>
+                    <li class="nav-menu-item"><a class="nav-link nav-menu-link" href="formulario.html">Form</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+
+            <br/>
+            <hr>
+            <h1 style="text-align: center; background-color: black; color: white">Ejemplo de Form</h1>
+            <hr>
+        <br/>
+<hr>
+            <h3>Información de Registro</h3>
+
+            <form action="registro.jsp" method="post">    
+
+                <input type="hidden" name="idCliente" value="123456789"/>
+
+                <label>Nombre completo: </label>
+                <input type="text" 
+                       name="nombre" 
+                       placeholder="Apellido1 Apellido2 Nombre"/>
+                <br/>
+
+                <label>Correo: </label>
+                <input type="email" 
+                       name="correo" 
+                       placeholder="ejemplo@ufide.ac.cr"/>
+                <br/>
+
+                <label>Comida preferida: </label>
+
+                Coreana:        <input type="checkbox" 
+                                       name="coreana"/>
+                Española:        <input type="checkbox" 
+                                        name="espanola"/>
+                Italiana:        <input type="checkbox" 
+                                        name="italiana"/>
+                <br/>
+
+                <label>Fecha de cita: </label>
+                <input type="date" 
+                       name="cita"/>
+                <br/>
+
+                <label>Hora de cita: </label>
+                <input type="time" 
+                       name="hora"/>
+                <br/>
+
+                <label>Foto: </label>
+                <input type="file" 
+                       name="foto"/>
+                <br/>
+
+                <label>Edad: </label>
+                <input type="number" 
+                       name="edad"
+                       min="18"
+                       max="35"/>
+                <br/>
+
+                <label>Color preferido: </label>
+                Azul <input type="radio" name="color" value="azul"/>
+                Rojo <input type="radio" name="color" value="rojo"/>
+                Verde <input type="radio" name="color" value="verde"/>
+                <br/>
+
+                <label>Clave de ingreso: </label>
+                <input type="password" name="clave" minlength="6" maxlength="8"/>
+                <br/>
+
+                <br/>
+                <input type="submit" 
+                       name="enviar" 
+                       value="Registrar"/>
+            </form>
+
+        </section>
+        <footer class="footer">
+            <h5>Sitio web desarrollo en el IIIC 2022 &copy</h5>
+        </footer>
+    </body>
+</html>

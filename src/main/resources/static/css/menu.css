@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    font-family: sans-serif;
+    padding: 90px 20px 0; 
+    background-color: #f1c232;
+}
+
+.header{
+    background-color: #008080;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 7px 11px #006666;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.nav-link{
+    color: #f1a832;
+    text-decoration: none;
+}
+
+.logo{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 90px; 
+    font-family: Stencil;
+}
+
+.nav-menu{
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.nav-menu-item{
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 90px; 
+}
+
+.nav-menu-link{
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition-timing-function: linear;
+    font-weight: bold;
+    
+}
+
+.nav-menu-link:hover{
+    background-color: #006666;
+    transition-duration: 1s;
+    font-size: 20px;
+    font-weight: bold;
+    transition-timing-function: linear;
+    line-height: 90px; 
+}
+
+ul li ul {
+  background: #006666;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  top: 50px;
+  display: none;
+  list-style: none;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+ul li:hover > ul,
+ul li ul:hover,
+ul li ul:focus {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+  line-height: 30px;
+  padding: 8px 12px;
+}
+
+.nav-menu-link2{
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.nav-menu-link2:hover{
+    background-color: #008080;
+    transition-duration: 1s;
+    font-size: 20px;
+    padding: 4px 6px;
+    font-weight: bold;
+    transition-timing-function: linear;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 45px;
+    background-color: #008080;
+    box-shadow: 0px -7px 11px #006666;
+    color: #f1a832;
+}
