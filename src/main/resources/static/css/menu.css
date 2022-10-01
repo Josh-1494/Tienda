@@ -64,7 +64,7 @@ body{
 
 .nav-menu-link:hover{
     background-color: #006666;
-    transition-duration: 1s;
+    transition-duration: 0.3s;
     font-size: 20px;
     font-weight: bold;
     transition-timing-function: linear;
@@ -109,11 +109,15 @@ ul li ul li {
 
 .nav-menu-link2:hover{
     background-color: #008080;
-    transition-duration: 1s;
+    transition-duration: 0.2s;
     font-size: 20px;
     padding: 4px 6px;
     font-weight: bold;
     transition-timing-function: linear;
+}
+
+.container {
+    padding: 0 0 43px 0;
 }
 
 .footer{
@@ -122,7 +126,7 @@ ul li ul li {
     left: 0;
     right: 0;
     text-align: center;
-    line-height: 45px;
+    line-height: 35px;
     background-color: #008080;
     box-shadow: 0px -7px 11px #006666;
     color: #f1a832;
