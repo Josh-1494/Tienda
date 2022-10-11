@@ -14,7 +14,7 @@
     <name>tienda</name>
     <description>Proyecto web para curso Web y Patrones</description>
     <properties>
-        <java.version>18</java.version>
+        <java.version>19</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -36,6 +36,8 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+            <version>1.18.22</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

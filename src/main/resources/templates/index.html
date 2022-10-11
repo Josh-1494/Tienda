@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html
+    xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>Saludos</div>
+        <p th:text="${mensaje}"></p>
+        <p>[[${mensaje}]]</p>
+        
+        <p>Nombre: [[${cliente.nombre}]]</p>
+        <p>Apellido: [[${cliente.apellidos}]]</p>
+        <p>Correo: [[${cliente.correo}]]</p>
+        <p>Telefono: [[${cliente.telefono}]]</p>
+        
+    </body>
+</html>
