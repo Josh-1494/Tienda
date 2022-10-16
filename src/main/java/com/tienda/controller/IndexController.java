@@ -15,6 +15,7 @@ public class IndexController {
         
         //Este tiene que ser un var en vez del String
         var texto="Estamos en semana 4";
+        
         model.addAttribute("mensaje",texto);
         
         Cliente cliente1 = new Cliente("Juan","Perez Moreno","jperez@gmail.com","2222-8888");
