@@ -1,8 +1,7 @@
 
 package com.tienda.controller;
 
-import com.tienda.domain.Cliente;
-import com.tienda.dao.ClienteDao;
+import com.tienda.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 //import java.util.Arrays;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
     
     @Autowired //El objeto se crea en menoria si no existe y si existe se usa este 
-    private ClienteDao clientedao;
+    private ClienteService clienteService;
     
     @GetMapping("/")
     public String inicio(Model model){
@@ -34,9 +33,9 @@ public class IndexController {
                            /*ESTE ES EL NOMBRE CON EL QUE SE LLAMA A LA LISTA*/
                                     /*     ▼     */
         /*model.addAttribute("clientes",clientes); */
-         
         
-        var clientes = clientedao.findAll();
+        
+        var clientes = clienteService.getClientes();
         model.addAttribute("clientes",clientes);
         
         return "index";
