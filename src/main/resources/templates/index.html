@@ -8,6 +8,9 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        
+        <header th:replace="layout/plantilla :: header"/>
+        
         <div>Saludos</div>
 
         <p>[[${mensaje}]]</p>
@@ -44,9 +47,9 @@
         
         <div th:if="${clientes ==null or clientes.empty}">
             <h4>No se tienen clientes que mostrar!</h4>
-             
         </div>
 
+        <footer th:replace="layout/plantilla :: footer"/>    
 
     </body>
 </html>
