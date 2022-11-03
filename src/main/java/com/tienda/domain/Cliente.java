@@ -10,32 +10,33 @@ import lombok.Data;
 @Table(name="cliente")
 public class Cliente implements Serializable{
     
-    /*Se agrega esto cuando se tiene una entidad autoincrementoria en la BD*/
     private static final long serialVersionUID = 1L;
     
-    /*Esto es para decirle que es una llave primaria*/
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//IDENTITY es para delegarle el autoincremental a la BD
-    private Long idCliente; //idCliente = id_Cliente
-                //NOMBRE EN //  JAVA    =    BD
-                /*  EJEMPLOS:
-                             idCategoriaArticulo   = JAVA
-                             id_categoria_articulo = BD
-                */
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_cliente")
+    private Long idCliente;
 
     private String nombre;
     private String apellidos;
     private String correo;
     private String telefono;
     
+    @JoinColumn(name="id_credito",referencedColumnName="id_credito")
+    @ManyToOne
+    private Credito credito;
+    
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellidos, String correo, String telefono) {
+    public Cliente(String nombre, String apellidos, String correo, String telefono, Credito credito) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
+        this.credito = credito;
     }
+
+
     
 }
