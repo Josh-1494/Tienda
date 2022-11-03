@@ -23,8 +23,14 @@ public class CategoriaServiceImpl implements CategoriaService{
     //  / READ /  *********************
     @Override
     @Transactional(readOnly=true)
-    public List<Categoria> getCategorias() {
-        return (List<Categoria>)categoriaDao.findAll();
+    public List<Categoria> getCategorias(boolean activos) {
+        var lista = (List<Categoria>)categoriaDao.findAll();
+        
+        if (activos)  {
+            lista.removeIf(e -> !e.isActivo());
+        } 
+        
+        return lista;
     }
     
     //Dado un categoria.id se busca en la tabla y 

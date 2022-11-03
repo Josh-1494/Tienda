@@ -9,7 +9,7 @@ public interface CategoriaService {
     
     //Retorna la lista de categorias
     //  / READ /  *********************
-    public List<Categoria> getCategorias();
+    public List<Categoria> getCategorias(boolean activos);
     
     //Dado un categoria.id se busca en la tabla y 
     //se retorna todo el objeto Categoria

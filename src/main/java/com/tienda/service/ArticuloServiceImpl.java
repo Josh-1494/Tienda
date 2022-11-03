@@ -23,8 +23,14 @@ public class ArticuloServiceImpl implements ArticuloService{
     //  / READ /  *********************
     @Override
     @Transactional(readOnly=true)
-    public List<Articulo> getArticulos() {
-        return (List<Articulo>)articuloDao.findAll();
+    public List<Articulo> getArticulos(boolean activos) {
+        var lista = (List<Articulo>)articuloDao.findAll();
+        
+        if (activos)  {
+            lista.removeIf(e -> !e.isActivo());
+        } 
+        
+        return lista;
     }
     
     //Dado un articulo.id se busca en la tabla y 

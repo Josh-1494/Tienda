@@ -9,7 +9,7 @@ public interface ArticuloService {
     
     //Retorna la lista de articulos
     //  / READ /  *********************
-    public List<Articulo> getArticulos();
+    public List<Articulo> getArticulos(boolean activos);
     
     //Dado un articulo.id se busca en la tabla y 
     //se retorna todo el objeto Articulo
