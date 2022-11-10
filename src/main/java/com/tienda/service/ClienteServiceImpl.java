@@ -60,5 +60,12 @@ public class ClienteServiceImpl implements ClienteService{
     public void delete(Cliente cliente){
         clienteDao.delete(cliente);
     }
+
     
+    /*Práctica #5: findByApellidos*/
+    @Override
+    public List<Cliente> getClientesPorApellido(String Apellidos) {
+        return clienteDao.findByApellidos(Apellidos);
+    }
+
 }

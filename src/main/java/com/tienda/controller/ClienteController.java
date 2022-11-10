@@ -3,6 +3,7 @@ package com.tienda.controller;
 
 import com.tienda.domain.Cliente;
 import com.tienda.service.ClienteService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,15 +18,23 @@ public class ClienteController {
     
     @GetMapping("/cliente/listado")
     public String inicio(Model model){
-        
-        var texto="Estamos en semana 4";
-        model.addAttribute("mensaje",texto);
-        
+                
         var clientes = clienteService.getClientes();
         model.addAttribute("clientes",clientes);
         
         return "/cliente/listado";
     }
+    
+    /*----------------------Práctica #5: findByApellidos-------------------------*/
+    @GetMapping("/cliente/buscar/")
+    public String buscarClientexapellido(String apellidos, Model model){
+        var clientes = clienteService.getClientesPorApellido(apellidos);
+        
+            model.addAttribute("cliente",clientes.get(0));
+            return "/cliente/modificar";
+        
+    }    
+    /*----------------------Práctica #5: findByApellidos-------------------------*/
     
     @GetMapping("/cliente/nuevo")
     public String nuevoCliente(Cliente cliente){
@@ -35,7 +44,7 @@ public class ClienteController {
     @PostMapping("/cliente/guardar")
     public String guardarCliente(Cliente cliente){
         clienteService.save(cliente);
-        return "/cliente/listado";
+        return "redirect:/cliente/listado";
     }
     
     @GetMapping("/cliente/modificar/{idCliente}")
@@ -48,7 +57,7 @@ public class ClienteController {
     @GetMapping("/cliente/eliminar/{idCliente}")
     public String eliminarCliente(Cliente cliente){
         clienteService.delete(cliente);
-        return "/cliente/listado";
+        return "redirect:/cliente/listado";
     }
     
 }
