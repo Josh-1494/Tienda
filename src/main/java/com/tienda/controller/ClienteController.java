@@ -29,7 +29,7 @@ public class ClienteController {
     @GetMapping("/cliente/buscar/")
     public String buscarClientexapellido(String apellidos, Model model){
         var clientes = clienteService.getClientesPorApellido(apellidos);
-        
+
             model.addAttribute("cliente",clientes.get(0));
             return "/cliente/modificar";
         
