@@ -8,41 +8,56 @@
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
+            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+
+        <header th:replace="layout/plantilla :: header" class="header"/>
+        <br/>
+        <div class="contenido">
         
-        <header th:replace="layout/plantilla :: header"/>
-        
-       <h1>Datos de Clientes</h1>   
-        <a th:href="@{/}">Regresar</a>
+       <h1>Datos de Articulo</h1>   
+        <a th:href="@{/articulo/listado}">Regresar</a>
         <hr/>
-        <form th:action="@{/cliente/guardar}"
-              method="post"
-              th:object="${cliente}">
+        <form th:action="@{/articulo/guardar}" method="post" th:object="${articulo}">
             
-            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
+            <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/><br/>
             
-            <label fro="nombre">Nombre</label>
-            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <label for="categoria">Categoria:</label>
+            <select th:field="*{idCategoria}">
+                <option th:each="categoria: ${categorias}"
+                        th:value="${categoria.idCategoria}"
+                        th:text="${categoria.descripcion}"/>
+            </select>
             <br/>
             
-            <label fro="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" th:field="*{apellidos}"/>
+            <label for="descripcion">Descripcion:</label>
+            <input type="text" name="descripcion" th:field="*{descripcion}"/>
             <br/>
             
-            <label fro="correo">Correo</label>
-            <input type="email" name="correo" th:field="*{correo}"/>
+            <label for="detalle">Detalle:</label>
+            <textArea name="detalle" th:field="*{detalle}" rows="6" cols="50"/>
             <br/>
             
-            <label fro="telefono">Telefono</label>
-            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <label for="precio">Precio:</label>
+            <input type="number" name="precio" th:field="*{precio}"/>
+            <br/>
+            
+            <label for="existencias">Existencias:</label>
+            <input type="number" name="existencias" th:field="*{existencias}"/>
+            <br/>
+            
+            <label for="activo">Existencias:</label>
+            <input type="checkbox" name="activo" th:field="*{activo}"/>
             <br/>
             
             <input type="submit" name="guardar" value="Guardar"/>
             
         </form>
         
-        <footer th:replace="layout/plantilla :: footer"/> 
+         </div>
+
+        <footer th:replace="layout/plantilla :: footer" class="footer"/>    
 
     </body>
 </html>

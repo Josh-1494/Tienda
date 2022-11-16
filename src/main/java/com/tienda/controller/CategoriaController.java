@@ -18,14 +18,21 @@ public class CategoriaController {
     @GetMapping("/categoria/listado")
     public String inicio(Model model){
         
-        var texto="Estamos en semana 4";
-        model.addAttribute("mensaje",texto);
-        
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias",categorias);
         
         return "/categoria/listado";
     }
+    
+    /*----------------------findByDescripcion-------------------------*/
+    @GetMapping("/categoria/buscar/")
+    public String buscarCategoriaxdescripcion(String descripcion, Model model){
+        var categorias = categoriaService.getCategoriaPorDescripcion(descripcion);
+
+            model.addAttribute("categoria",categorias.get(0));
+            return "/categoria/modificar";
+    }    
+    /*----------------------findByDescripcion-------------------------*/
     
     @GetMapping("/categoria/nuevo")
     public String nuevoCategoria(Categoria categoria){
@@ -35,20 +42,20 @@ public class CategoriaController {
     @PostMapping("/categoria/guardar")
     public String guardarCategoria(Categoria categoria){
         categoriaService.save(categoria);
-        return "/categoria/listado";
+        return "redirect:/categoria/listado";
     }
     
     @GetMapping("/categoria/modificar/{idCategoria}")
     public String modificarCategoria(Categoria categoria, Model model){
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria",categoria);
-        return "/categoria/modificar";
+        return "categoria/modificar";
     }
     
     @GetMapping("/categoria/eliminar/{idCategoria}")
     public String eliminarCategoria(Categoria categoria){
         categoriaService.delete(categoria);
-        return "/categoria/listado";
+        return "redirect:/categoria/listado";
     }
     
 }

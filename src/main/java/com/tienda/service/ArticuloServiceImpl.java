@@ -49,7 +49,7 @@ public class ArticuloServiceImpl implements ArticuloService{
     @Transactional
     public void save(Articulo articulo){
         articuloDao.save(articulo);
-    }
+    }  
     
     //Elimina el registro que tiene el id igual a articulo.id
     //  / DELETE /  *********************
@@ -57,6 +57,11 @@ public class ArticuloServiceImpl implements ArticuloService{
     @Transactional
     public void delete(Articulo articulo){
         articuloDao.delete(articulo);
+    }
+    
+    @Override
+    public List<Articulo> getArticuloPorDescripcion(String descripcion) {
+        return articuloDao.findByDescripcion(descripcion);
     }
     
 }

@@ -8,41 +8,32 @@
     <head>
         <title>TechShop</title>
         <meta charset="UTF-8">
+            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
-        <header th:replace="layout/plantilla :: header"/>
-        
-       <h1>Datos de Clientes</h1>   
-        <a th:href="@{/}">Regresar</a>
-        <hr/>
-        <form th:action="@{/cliente/guardar}"
-              method="post"
-              th:object="${cliente}">
-            
-            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
-            
-            <label fro="nombre">Nombre</label>
-            <input type="text" name="nombre" th:field="*{nombre}"/>
-            <br/>
-            
-            <label fro="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" th:field="*{apellidos}"/>
-            <br/>
-            
-            <label fro="correo">Correo</label>
-            <input type="email" name="correo" th:field="*{correo}"/>
-            <br/>
-            
-            <label fro="telefono">Telefono</label>
-            <input type="tel" name="telefono" th:field="*{telefono}"/>
-            <br/>
-            
-            <input type="submit" name="guardar" value="Guardar"/>
-            
-        </form>
-        
-        <footer th:replace="layout/plantilla :: footer"/> 
+
+        <header th:replace="layout/plantilla :: header" class="header"/>
+        <br/>
+        <div class="contenido">
+            <h1>Datos de Categoria</h1>   
+            <a th:href="@{/categoria/listado}">Regresar</a>
+            <hr/>
+            <form th:action="@{/categoria/guardar}"
+                  method="post"
+                  th:object="${categoria}">
+                <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" name="descripcion" th:field="*{descripcion}"/>
+                <br/>
+                <label for="activo">Activo:</label>
+                <input type="checkbox" name="activo" th:field="*{activo}"/>
+                <br/>
+                <input type="submit" name="guardar" value="Guardar"/>
+            </form>
+
+        </div>
+
+        <footer th:replace="layout/plantilla :: footer" class="footer"/> 
 
     </body>
 </html>

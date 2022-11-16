@@ -25,4 +25,5 @@ public interface ArticuloService {
     //  / DELETE /  *********************
     public void delete(Articulo articulo);
     
+    public List<Articulo> getArticuloPorDescripcion(String descripcion);
 }
