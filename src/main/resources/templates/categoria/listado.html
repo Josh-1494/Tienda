@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
 <html
-    xmlns:th="http://www.thymeleaf.org"
     xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
     >
-
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
         <meta charset="UTF-8">
-            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -17,15 +15,15 @@
         <div class="contenido">
 
             <!-- Esta es la Segunda parte donde se explica como llamar a un ARRAY -->
-            <h2>Listado de Categorias</h2>
+            <h2>[[#{categoria.titulo}]]</h2>
 
-            <a th:href="@{/categoria/nuevo}">Nueva Categoria</a>
+            <a th:href="@{/categoria/nuevo}">[[#{categoria.nuevo}]]</a>
             <hr>
                 <br/>    
 
 <!-- ----------------------findByDescripcion----------------- -->
                 <form th:action="@{/categoria/buscar/}">
-                    <label>Buscar por Descripcion: </label>
+                    <label>[[#{categoria.buscarape}]]</label>
                     <input type="text" name="descripcion"/>
                     <br/>                
                     <input type="submit" name="buscar" value="Buscar"/>
@@ -41,8 +39,8 @@
                     <table border="1">
                         <thead>
                             <tr>
-                                <th>Descripcion</th>
-                                <th>Activo</th>
+                                <th>[[#{categoria.descripcion}]]</th>
+                                <th>[[#{categoria.activo}]]</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,15 +48,15 @@
                             <tr th:each="categoria : ${categorias}">
                                 <td>[[${categoria.descripcion}]]</td>
                                 <td>[[${categoria.activo}]]</td>
-                                <td><a th:href="@{/categoria/eliminar/}+ ${categoria.idCategoria}"/>Eliminar</td>
-                                <td><a th:href="@{/categoria/modificar/}+ ${categoria.idCategoria}"/>Modificar</td>
+                                <td><a th:href="@{/categoria/eliminar/}+ ${categoria.idCategoria}"/>[[#{accion.eliminar}]]</td>
+                                <td><a th:href="@{/categoria/modificar/}+ ${categoria.idCategoria}"/>[[#{accion.actualizar}]]</td>
                             </tr>
                         </tbody>
                     </table> 
                 </div>
 
                 <div th:if="${categorias ==null or categorias.empty}">
-                    <h4>No se tienen categorias que mostrar!</h4>
+                    <h4>[[#{categoria.no_mostrar}]]</h4>
                 </div>
         </div>
         <footer th:replace="layout/plantilla :: footer" class="footer"/>  

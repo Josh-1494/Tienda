@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
 <html
-    xmlns:th="http://www.thymeleaf.org"
     xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
     >
-
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
         <meta charset="UTF-8">
-            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 
@@ -17,15 +15,15 @@
         <div class="contenido">
 
             <!-- Esta es la Segunda parte donde se explica como llamar a un ARRAY -->
-            <h2>Informacion de un Clientes</h2>
+            <h2>[[#{cliente.titulo}]]</h2>
 
-            <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
+            <a th:href="@{/cliente/nuevo}">[[#{cliente.nuevo}]]</a>
             <hr>
                 <br/>    
 
 <!-- ---------------------- Práctica #5: findByApellidos ----------------- -->
                 <form th:action="@{/cliente/buscar/}">
-                    <label>Buscar por Apellidos: </label>
+                    <label>[[#{cliente.buscarape}]]</label>
                     <input type="text" name="apellidos"/>
                     <br/>                
                     <input type="submit" name="buscar" value="Buscar"/>
@@ -41,13 +39,13 @@
                     <table border="1">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Correo</th>
-                                <th>Telefono</th>
-                                <th>Limite</th>
-                                <th>Eliminar</th>
-                                <th>Modificar</th>
+                                <th>[[#{cliente.nombre}]]</th>
+                                <th>[[#{cliente.apellidos}]]</th>
+                                <th>[[#{cliente.correo}]]</th>
+                                <th>[[#{cliente.telefono}]]</th>
+                                <th>[[#{cliente.limite}]]</th>
+                                <th>[[#{accion.eliminar}]]</th>
+                                <th>[[#{accion.actualizar}]]</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,16 +56,15 @@
                                 <td>[[${cliente.correo}]]</td>
                                 <td>[[${cliente.telefono}]]</td>
                                 <td style="text-align: right">[[${#numbers.formatDecimal(cliente.credito.limite,3,2)}]]</td>
-                                <td><a th:href="@{/cliente/eliminar/}+ ${cliente.idCliente}"/>Eliminar</td>
-                                <td><a th:href="@{/cliente/modificar/}+ ${cliente.idCliente}"/>Modificar</td>
-                                <td><a th:href="@{/cliente/buscar/}+ ${cliente.apellidos}"/>buscar</td>
+                                <td><a th:href="@{/cliente/eliminar/}+ ${cliente.idCliente}"/>[[#{accion.eliminar}]]</td>
+                                <td><a th:href="@{/cliente/modificar/}+ ${cliente.idCliente}"/>[[#{accion.actualizar}]]</td>
                             </tr>
                         </tbody>
                     </table> 
                 </div>
 
                 <div th:if="${clientes ==null or clientes.empty}">
-                    <h4>No se tienen clientes que mostrar!</h4>
+                    <h4>[[#{cliente.no_mostrar}]]</h4>
                 </div>
         </div>
         <footer th:replace="layout/plantilla :: footer" class="footer"/>  
