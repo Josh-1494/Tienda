@@ -3,7 +3,6 @@ package com.tienda.controller;
 
 import com.tienda.domain.Cliente;
 import com.tienda.service.ClienteService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +16,20 @@ public class ClienteController {
     private ClienteService clienteService;
     
     @GetMapping("/cliente/listado")
-    public String inicio(Model model){
-                
-        var clientes = clienteService.getClientes();
+    public String inicio(Model model) {
+        var clientes=clienteService.getClientes();
         model.addAttribute("clientes",clientes);
+        
+        var limiteTotal=0;
+        for (var c: clientes) {
+            limiteTotal+=c.credito.limite;
+        }
+        model.addAttribute("limiteTotal",limiteTotal);
+        model.addAttribute("totalClientes",clientes.size());
         
         return "/cliente/listado";
     }
+
     
     /*----------------------Práctica #5: findByApellidos-------------------------*/
     @GetMapping("/cliente/buscar/")
