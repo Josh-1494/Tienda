@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/cliente/listado")
                 .hasAnyRole("ADMIN", "VENDEDOR")
                 .antMatchers("/")
-                .hasAnyRole("ADMIN", "VENDEDOR", "USER")
+                .permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
